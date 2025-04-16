@@ -7,7 +7,7 @@ using namespace KamataEngine;
 // Windowsアプリでのエントリーポイント(main関数)
 int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 	KamataEngine::Initialize(L"LE2D_04_イセリ_シュンスケ");
-	
+	//sorry
 	DirectXCommon* dxcommon = DirectXCommon::GetInstance();
 	//ゲームシーンのインスタンス生成
 	GameScene* gameScene = new GameScene();
