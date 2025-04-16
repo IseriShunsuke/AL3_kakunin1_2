@@ -5,8 +5,10 @@ using namespace KamataEngine;
 // 初期化
 void GameScene::Initialize() 
 {
-	textureHandle_ = TextureManager::Load("player1.png"); 
-	sprite_ = Sprite::Create(textureHandle_, {100, 50});
+	textureHandle_ = TextureManager::Load("uvChecker.png"); 
+	worldTransForm_.Initialize();
+	camera_.Initialize();
+	model_ = Model::Create();
 }
 // 更新
 void GameScene::Update() {}
@@ -14,8 +16,15 @@ void GameScene::Update() {}
 void GameScene::Draw() 
 { 
 	DirectXCommon* dXCommon = DirectXCommon::GetInstance();
-	Sprite::PreDraw(dXCommon->GetCommandList());
-	sprite_->Draw();
-	Sprite::PostDraw();
-	delete sprite_;
+
+	Model::PreDraw(dXCommon->GetCommandList());
+	
+	model_->Draw(worldTransForm_,camera_,textureHandle_);
+	
+	Model::PostDraw();
+}
+
+GameScene::~GameScene()
+{ 
+	delete model_;
 }

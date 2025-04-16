@@ -6,7 +6,11 @@ class GameScene
 {
 public:
 
-	KamataEngine::Sprite* sprite_ = nullptr;
+	KamataEngine::Model* model_ = nullptr;
+
+	KamataEngine::WorldTransform worldTransForm_;
+
+	KamataEngine::Camera camera_;
 
 	void Initialize();
 
@@ -14,5 +18,9 @@ public:
 
 	void Draw();
 
+	~GameScene();
+
+
+private:
 	uint32_t textureHandle_ = 0;
 };
